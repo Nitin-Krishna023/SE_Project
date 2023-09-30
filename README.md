@@ -63,3 +63,42 @@ python3 run.py
 This command will start the BookYourTicket website locally, allowing you to access and test the application in your web browser.
 
 Congratulations! You've successfully set up and launched the BookYourTicket software engineering project. You can now begin developing and exploring its features. If you encounter any issues or have questions, please refer to our documentation or reach out to our project team for assistance. Happy coding!
+
+## Building and Running the Docker Container
+
+To simplify the deployment process, you can run the BookYourTicket software project within a Docker container. Follow these steps to build and run the Docker container for BookYourTicket:
+
+### Prerequisites
+
+Before you proceed, make sure you have Docker installed on your system. You can download and install Docker from the official website: [Docker Download](https://www.docker.com/get-started).
+
+### Building the Docker Image
+
+1. Open a terminal window.
+
+2. Navigate to the root directory of the BookYourTicket project where the `Dockerfile` is located.
+
+3. Build the Docker image by running the following command:
+
+   ```bash
+   docker build -t bookyourticket .
+   ```
+
+   This command creates a Docker image named `bookyourticket` based on the instructions in the `Dockerfile`.
+
+### Running the Docker Container
+
+4. After successfully building the Docker image, you can start a Docker container by executing the following command:
+
+   ```bash
+   docker run -d -p 8000:8000 bookyourticket
+   ```
+
+   - The `-d` flag runs the container in detached mode.
+   - The `-p` flag maps port 8000 inside the container to port 8000 on your host system.
+
+### Accessing BookYourTicket
+
+5. Open your web browser and navigate to `http://localhost:8000` to access the BookYourTicket application running within the Docker container.
+
+Now you have successfully built and run the BookYourTicket software project inside a Docker container. You can interact with the application by accessing it through your web browser. If you encounter any issues or have questions, please refer to our documentation or reach out to our project team for assistance. Happy exploring!
