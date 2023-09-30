@@ -10,6 +10,12 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('password')])
+    first_name = StringField('First Name',
+                             validators=[DataRequired(), Length(min=1, max=20)])
+    last_name = StringField('Last Name',
+                             validators=[DataRequired(), Length(min=1, max=20)])
+    email = StringField('Email',
+                             validators=[DataRequired(), Length(min=1, max=20)])
     submit = SubmitField('Sign Up')
 
     def validate_username(self, username):
@@ -23,3 +29,9 @@ class LoginForm(FlaskForm):
                            validators=[DataRequired(), Length(min=2, max=20)])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
+
+class LinkForm(FlaskForm):
+    username = StringField('URL',
+                           validators=[DataRequired(), Length(min=2, max=1024)], default="https://google.com")
+    password = StringField('Nickname', validators=[DataRequired()], default="Google")
+    submit = SubmitField('Submit')

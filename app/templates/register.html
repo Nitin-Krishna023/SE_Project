@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<main id="main-content" class="rvt-flex rvt-flex-column rvt-grow-1">
+    <!-- **********************************************************************
+        Content
+    *********************************************************************** -->
+    
+    <div class="rvt-layout__wrapper [ rvt-p-tb-xxl ]">
+        <div class="rvt-container-lg">
+            <div class="rvt-row">
+                <div class="rvt-cols-8-md rvt-flow rvt-prose">
+
+                    <!-- ******************************************************
+                        Create/edit form
+                    ******************************************************* -->
+
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+
+                        <!-- **************************************************
+                            Grouped set of fields
+                        *************************************************** -->
+
+                        <fieldset class="rvt-fieldset">
+                            <legend class="rvt-legend [ rvt-ts-18 rvt-border-bottom rvt-p-bottom-xs ]">
+                                <h1 class="rvt-m-top-xs">Register</h1>
+                                <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+                            </legend>
+                            <div class="rvt-m-top-sm">
+                                {{ form.first_name.label(class="rvt-label") }}
+                                {{ form.first_name(class="rvt-input") }}
+                            </div>
+
+                            <div class="rvt-m-top-sm">
+                                {{ form.last_name.label(class="rvt-label") }}
+                                {{ form.last_name(class="rvt-input") }}
+                            </div>
+
+                            <div class="rvt-m-top-sm">
+                                {{ form.email.label(class="rvt-label") }}
+                                {{ form.email(class="rvt-input") }}
+                            </div>
+                        </fieldset>
+
+                        <br />
+
+                        <fieldset class="rvt-fieldset">
+                            <legend class="rvt-legend [ rvt-ts-18 rvt-border-bottom rvt-p-bottom-xs ]">
+                                <h2> Account Information </h2>
+                            </legend>
+                            <div class="rvt-m-top-sm">
+                                {{ form.username.label(class="rvt-label") }}
+                                {{ form.username(class="rvt-input") }}
+                            </div>
+
+                            <div class="rvt-m-top-sm">
+                                {{ form.password.label(class="rvt-label") }}
+                                {{ form.password(class="rvt-input") }}
+                            </div>
+
+                            <div class="rvt-m-top-sm">
+                                {{ form.confirm_password.label(class="rvt-label") }}
+                                {{ form.confirm_password(class="rvt-input") }}
+                            </div>
+                        </fieldset>
+                        
+                        <div class="rvt-button-group [ rvt-m-top-xl ]">
+                            {{ form.submit(class="rvt-button") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
